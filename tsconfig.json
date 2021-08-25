@@ -7,8 +7,5 @@
         "preserveConstEnums": true,
         "sourceMap": true,
         "moduleResolution": "node"
-    },
-    "files": [
-        "images.d.ts"
-    ]
+    }
 }
