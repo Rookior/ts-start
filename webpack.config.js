@@ -28,18 +28,35 @@ module.exports = {
         rules:[
             {
                 test:/\.css$/,
-                use:['style-loader','css-loader']
+                use:['style-loader','css-loader'],
+                exclude:[
+                    path.resolve(__dirname,'src/components')
+                ]
             },
-            {             
-                test: /\.(woff|woff2|eot|ttf|otf|svg|png|svg|jpg|gif)$/,
-                dependency: { not: ['url'] },
-                use: ['file-loader'],
-                type: 'javascript/auto'                        
+            {
+                test:/\.css$/,
+                use:['style-loader',{
+                    loader:'css-loader',
+                    options:{
+                        modules:{
+                            localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                        }
+                    }
+                }],
+                include:[
+                    path.resolve(__dirname,'src/components')
+                ]
             },
-            // {
+            // {             
             //     test: /\.(woff|woff2|eot|ttf|otf|svg|png|svg|jpg|gif)$/,
-            //     type: 'asset/resource'
+            //     dependency: { not: ['url'] },
+            //     use: ['file-loader'],
+            //     type: 'javascript/auto'                        
             // },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf|svg|png|svg|jpg|gif)$/,
+                type: 'asset/resource'
+            },
             {
                 test: /\.ts$/,
                 use: ['ts-loader'],
