@@ -51,7 +51,7 @@ class Popup implements Icomponent{
         this.tempContainer.innerHTML = `
             <div class="${styles['popup-title']}">
                 <h3>${this.settings.title}</h3>
-                <i class="iconfont icon-dicengjiagou"></i>
+                <i class="iconfont icon-error"></i>
             </div>
             <div class="${styles['popup-content']}">
                 
